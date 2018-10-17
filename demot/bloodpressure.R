@@ -11,7 +11,7 @@ theme_set(theme_bw())
 # first plot to illustrate how blood pressure changes as aging
 plot1 <- ggplot(file, aes(x=ages, y=pressures)) +
   geom_point(shape=1) +
-  geom_smooth(method="lm") +
+  geom_smooth(method="lm",se=F) +
   labs(title="Aging on Blood Pressure and Weight",
        subtitle="Age Vs Blood Pressure",
        y="Systolic Blood Pressure",
@@ -20,11 +20,12 @@ plot1 <- ggplot(file, aes(x=ages, y=pressures)) +
 # second plot to show how also weight is changing
 plot2 <- ggplot(file, aes(y=weights, x=age)) +
   geom_point(shape=1) +
-  geom_smooth(method="lm") +
+  geom_smooth(method="lm",se=F) +
   labs(subtitle="Age Vs Weight",
        y="Weight",
        x="Age")
 
+# save the plots as .png
 jpeg("aging_plot.png")
 grid.newpage()
 grid.draw(rbind(ggplotGrob(plot1),ggplotGrob(plot2),size = "last"))
