@@ -8,6 +8,7 @@ weights <- file$weight
 pressures <- file$systolic.blood.pressure
 
 theme_set(theme_bw())
+# first plot to illustrate how blood pressure changes as aging
 plot1 <- ggplot(file, aes(x=ages, y=pressures)) +
   geom_point() +
   labs(title="Aging on Blood Pressure and Weight",
@@ -15,6 +16,7 @@ plot1 <- ggplot(file, aes(x=ages, y=pressures)) +
        y="Systolic Blood Pressure",
        x="Age")
 
+# second plot to show how also weight is changing
 plot2 <- ggplot(file, aes(y=weights, x=age)) +
   geom_point() +
   labs(subtitle="Age Vs Weight",
